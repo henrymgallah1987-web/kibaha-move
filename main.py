@@ -3,12 +3,19 @@ from fastapi.responses import HTMLResponse
 
 app = FastAPI(title="KibahaMove API")
 
+
 routes = [
     {"origin": "Kibaha", "destination": "Maili Moja", "mode": "Bajaji", "fare_tzs": 2000},
     {"origin": "Kibaha", "destination": "Maili Moja", "mode": "Pikipiki", "fare_tzs": 3000},
-    {"origin": "Kibaha", "destination": "Mlandizi", "mode": "Daladala", "fare_tzs": 1000},
-]
+    {"origin": "Kibaha", "destination": "Maili Moja", "mode": "Taxi", "fare_tzs": 10000},
 
+    {"origin": "Kibaha", "destination": "Mlandizi", "mode": "Daladala", "fare_tzs": 1000},
+    {"origin": "Kibaha", "destination": "Mlandizi", "mode": "Bus", "fare_tzs": 1500},
+
+    {"origin": "Kibaha", "destination": "Dar es Salaam", "mode": "Train", "fare_tzs": 2500},
+    {"origin": "Kibaha", "destination": "Dar es Salaam", "mode": "Bus", "fare_tzs": 3000},
+    {"origin": "Kibaha", "destination": "Dar es Salaam", "mode": "Taxi", "fare_tzs": 45000},
+]
 
 @app.get("/", response_class=HTMLResponse)
 def home():
@@ -132,7 +139,8 @@ def home():
 
             <select id="destination">
                 <option>Maili Moja</option>
-                <option>Mlandizi</option>
+                
+                <option>Dar es Salaam</option>
             </select>
 
             <button onclick="searchRoutes()">Find routes</button>
